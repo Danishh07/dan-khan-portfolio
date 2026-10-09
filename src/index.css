@@ -1,0 +1,16 @@
+@import "tailwindcss";
+:root { --bg: #EFEFEA; --ink: #17181A; --acc: #3347FF;
+  --mute: color-mix(in srgb, var(--ink) 62%, var(--bg)); --line: color-mix(in srgb, var(--ink) 16%, var(--bg)); }
+@theme inline {
+  --color-bg: var(--bg); --color-ink: var(--ink); --color-acc: var(--acc); --color-mute: var(--mute); --color-line: var(--line);
+  --font-display: "Familjen Grotesk", system-ui, sans-serif; --font-sans: "Instrument Sans", system-ui, sans-serif;
+}
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; color-scheme: light; }
+  body { background: var(--bg); color: var(--ink); @apply font-sans text-[17px] leading-[1.55] antialiased overflow-x-hidden; }
+  h1, h2, h3 { @apply font-display font-semibold tracking-[-0.04em]; }
+  :focus-visible { outline: 2px solid var(--acc); outline-offset: 4px; }
+}
+.js .rv { opacity: 0; transform: translateY(36px); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .rv { opacity: 1; transform: none; } * { transition: none !important; } }
+.st.on .n { background: var(--acc); border-color: var(--acc); color: #fff; }
